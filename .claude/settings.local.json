@@ -21,7 +21,8 @@
       "Bash(npm init:*)",
       "Bash(git add:*)",
       "Bash(git push:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(git count-objects:*)"
     ],
     "deny": [],
     "ask": []
