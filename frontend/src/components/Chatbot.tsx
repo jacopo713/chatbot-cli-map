@@ -652,6 +652,7 @@ export default function Chatbot() {
                 setSelectedMapId(null);
               }}>Apri mappe concettuali</button>
               <button onClick={createNewConceptMap} className="w-full text-left p-2 rounded bg-blue-500 text-white hover:bg-blue-600 transition-colors">+ Nuova mappa concettuale</button>
+              <a href="/test-api" className="w-full text-left p-2 rounded bg-orange-500 text-white hover:bg-orange-600 transition-colors block">🔧 Test API</a>
             </div>
             <div className="mt-2 max-h-48 overflow-y-auto space-y-1">
               {visibleMapsInSidebar.length===0 && <div className="text-xs text-gray-400 p-2 italic">Nessuna mappa aperta</div>}
