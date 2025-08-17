@@ -17,7 +17,9 @@
       "Bash(curl:*)",
       "Bash(timeout 30 python:*)",
       "Bash(timeout:*)",
-      "Bash(uvicorn:*)"
+      "Bash(uvicorn:*)",
+      "Bash(npm init:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

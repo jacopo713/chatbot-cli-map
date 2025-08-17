@@ -259,3 +259,8 @@ Il progetto è strutturato per essere estendibile:
 Un sistema completo che trasforma un chatbot generico in un **assistente AI personalizzato** che comprende e si adatta al modo unico di pensare di ogni utente attraverso mappe concettuali interattive.
 
 **Il futuro delle conversazioni AI è qui! 🚀**
+
+## 🌐 Deploy Production
+
+- **Frontend**: Deployed on Vercel
+- **Backend**: Deployed on Railway
