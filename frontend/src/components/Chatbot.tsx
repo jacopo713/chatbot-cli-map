@@ -7,9 +7,9 @@ import CodeBlock from './CodeBlock';
 import ErrorConsole from './ErrorConsole';
 import ConceptMapPreview, { ConceptMapData } from './ConceptMapPreview';
 import MemoryDashboard from './MemoryDashboard';
-import { getMemoryStatus } from '../lib/api';
-import { useAuth } from '../lib/AuthContext';
-import { useFirebaseConceptMaps } from '../lib/useFirebaseConceptMaps';
+import { getMemoryStatus } from '@/lib/api';
+import { useAuth } from '@/lib/AuthContext';
+import { useFirebaseConceptMaps } from '@/lib/useFirebaseConceptMaps';
 
 interface Message { text: string; sender: 'user' | 'ai'; reasoning?: string; }
 interface Project { id: string; name: string; files: Array<{ path: string; content: string; language: string }>; autoCapture?: boolean; }
@@ -482,7 +482,7 @@ export default function Chatbot() {
       } catch (parseError) {
         console.error('❌ JSON parse error:', parseError);
         console.error('❌ Raw response that failed to parse:', responseText);
-        throw new Error(`Failed to parse JSON: ${parseError.message}`);
+        throw new Error(`Failed to parse JSON: ${parseError instanceof Error ? parseError.message : 'Unknown error'}`);
       }
       
       if (response.ok) {
