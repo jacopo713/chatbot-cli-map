@@ -531,6 +531,8 @@ export default function Chatbot() {
       const timeoutId = setTimeout(() => controller.abort(), 120000); // 2 minuti
 
       const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://chatbot-cli-map-production.up.railway.app'}/api/chat`;
+      console.log('🚀 ENV VAR:', process.env.NEXT_PUBLIC_BACKEND_URL);
+      console.log('🚀 ENDPOINT:', endpoint);
       
       const res = await fetch(endpoint, {
         method:'POST', 
