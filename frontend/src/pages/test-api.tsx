@@ -34,8 +34,11 @@ export default function TestAPI() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'text/plain, */*',
+          'Cache-Control': 'no-cache',
         },
         body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(30000), // 30 second timeout
       });
 
       console.log('🚀 RESPONSE STATUS:', res.status);
