@@ -74,7 +74,9 @@ app.add_middleware(
         "http://localhost:3000", 
         "http://localhost:3001",
         "https://chatbot-cli-map.vercel.app",
-        "https://*.vercel.app"
+        "https://*.vercel.app",
+        "https://thinkturing.com",
+        "https://*.thinkturing.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
