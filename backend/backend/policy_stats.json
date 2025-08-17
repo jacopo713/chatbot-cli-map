@@ -1,0 +1,30 @@
+{
+  "brainstorm": {
+    "format_10_strict": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "format_10_2lines": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "diversity_high": {
+      "alpha": 1,
+      "beta": 1
+    }
+  },
+  "coding": {
+    "bash_min": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "bash_plus_alt": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "with_checks": {
+      "alpha": 1,
+      "beta": 1
+    }
+  }
+}
