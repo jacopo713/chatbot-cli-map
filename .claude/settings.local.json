@@ -20,7 +20,8 @@
       "Bash(uvicorn:*)",
       "Bash(npm init:*)",
       "Bash(git add:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []
