@@ -25,7 +25,8 @@
       "Bash(git count-objects:*)",
       "Bash(git commit:*)",
       "Bash(lsof:*)",
-      "Bash(kill:*)"
+      "Bash(kill:*)",
+      "WebFetch(domain:www.thinkturing.com)"
     ],
     "deny": [],
     "ask": []
