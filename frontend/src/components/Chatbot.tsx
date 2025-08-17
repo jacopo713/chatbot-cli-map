@@ -536,13 +536,13 @@ export default function Chatbot() {
       
       const payload = {
         message: base,
-        context_files: contextFiles,
+        context_files: contextFiles || [],
         project_name: projectName,
         concept_map_context: mapContextText,
         active_concept_map_id: selectedMapId,
-        history: historyPayload,
+        history: historyPayload || [],
         conversation_id: conversationId,
-        user_id: user?.uid // Add user ID for concept map retrieval
+        user_id: user?.uid || null // Add user ID for concept map retrieval
       };
       console.log('🚀 PAYLOAD:', payload);
       
@@ -554,7 +554,12 @@ export default function Chatbot() {
       });
 
       clearTimeout(timeoutId);
-      if(!res.ok) throw new Error('Network response was not ok');
+      if(!res.ok) {
+        console.log('🚀 ERROR RESPONSE:', res.status, res.statusText);
+        const errorText = await res.text().catch(() => 'Could not read error');
+        console.log('🚀 ERROR BODY:', errorText);
+        throw new Error(`Network response was not ok: ${res.status} ${res.statusText}`);
+      }
 
       const reader = res.body?.getReader(); 
       const decoder=new TextDecoder();
