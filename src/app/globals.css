@@ -1,0 +1,352 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-fira-code: var(--font-fira-code);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Personalizzazioni aggiuntive */
+.chatbot-container {
+  height: 100%;
+}
+
+/* Scrollbar generale personalizzata */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Stili per inline code */
+:not(pre) > code {
+  background-color: rgba(55, 65, 81, 0.5);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+/* Stili per pre e code */
+pre {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+code {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  white-space: pre !important;
+  word-wrap: normal !important;
+}
+
+/* Assicura che le linee lunghe siano visibili */
+code::before {
+  content: '';
+  min-width: max-content;
+  display: inline-block;
+}
+
+/* Stili per i codeblock con scrollbar SEMPRE visibile */
+.codeblock-scroll-container {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: #4b5563 #f9f9f9 !important;
+}
+
+/* Forza la visualizzazione della scrollbar per WebKit browsers */
+.codeblock-scroll-container::-webkit-scrollbar {
+  height: 8px !important;
+  width: 8px !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+.codeblock-scroll-container::-webkit-scrollbar-track {
+  background: #f9f9f9 !important;
+  border-radius: 4px !important;
+}
+
+.codeblock-scroll-container::-webkit-scrollbar-thumb {
+  background: #4b5563 !important;
+  border-radius: 4px !important;
+  border: 1px solid #f9f9f9 !important;
+  visibility: visible !important;
+}
+
+.codeblock-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #6b7280 !important;
+}
+
+/* Prevenzione del layout shift */
+.codeblock-wrapper {
+  position: relative;
+  min-height: 1rem;
+}
+
+/* Stili per SyntaxHighlighter per evitare conflitti */
+.hljs {
+  background: transparent !important;
+  color: #e5e7eb !important;
+  display: block !important;
+  overflow: visible !important;
+  white-space: pre !important;
+  word-wrap: normal !important;
+}
+
+/* Assicura che il contenuto del codice non causi overflow verticale */
+pre.hljs {
+  overflow-x: visible !important;
+  overflow-y: hidden !important;
+  max-height: none !important;
+}
+
+/* Forza la larghezza minima per mostrare la scrollbar quando necessario */
+.codeblock-scroll-container .syntax-highlighter {
+  min-width: fit-content !important;
+  width: max-content !important;
+}
+
+/* Stili per il preview modal */
+.preview-modal-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.preview-modal-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.preview-modal-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.preview-modal-exit-active {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Device preview frames */
+.device-frame {
+  position: relative;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.device-frame.mobile {
+  width: 375px;
+  height: 667px;
+  border: 16px solid #333;
+  border-radius: 36px;
+  padding: 0;
+}
+
+.device-frame.tablet {
+  width: 768px;
+  height: 1024px;
+  border: 20px solid #333;
+  border-radius: 24px;
+  padding: 0;
+}
+
+.device-frame.desktop {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+}
+
+/* Animazioni generali */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Animazione per i punti di caricamento */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.delay-75 {
+  animation-delay: 0.075s;
+}
+
+.delay-150 {
+  animation-delay: 0.15s;
+}
+
+/* Stili per iframe preview sicuro */
+iframe.code-preview {
+  background: white;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Backdrop blur per modali */
+.modal-backdrop {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Stili per il markdown */
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  color: #1f2937;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose h1 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.prose p {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: #374151;
+  line-height: 1.625;
+}
+
+.prose ul, .prose ol {
+  padding-left: 1.25rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose li {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.prose blockquote {
+  border-left-width: 4px;
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+  color: #1e40af;
+  padding: 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.prose th {
+  background-color: #f3f4f6;
+  text-align: left;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.prose td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.prose tr:last-child td {
+  border-bottom: none;
+}
+
+.prose strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+.prose a {
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.prose a:hover {
+  color: #1d4ed8;
+}
