@@ -535,14 +535,7 @@ export default function Chatbot() {
       console.log('🚀 ENDPOINT:', endpoint);
       
       const payload = {
-        message: base,
-        context_files: contextFiles || [],
-        project_name: projectName,
-        concept_map_context: mapContextText,
-        active_concept_map_id: selectedMapId,
-        history: [], // Temporary: empty history for testing
-        conversation_id: conversationId,
-        user_id: user?.uid || null // Add user ID for concept map retrieval
+        message: base
       };
       console.log('🚀 PAYLOAD:', payload);
       
