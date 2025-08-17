@@ -534,19 +534,22 @@ export default function Chatbot() {
       console.log('🚀 ENV VAR:', process.env.NEXT_PUBLIC_BACKEND_URL);
       console.log('🚀 ENDPOINT:', endpoint);
       
+      const payload = {
+        message: base,
+        context_files: contextFiles,
+        project_name: projectName,
+        concept_map_context: mapContextText,
+        active_concept_map_id: selectedMapId,
+        history: historyPayload,
+        conversation_id: conversationId,
+        user_id: user?.uid // Add user ID for concept map retrieval
+      };
+      console.log('🚀 PAYLOAD:', payload);
+      
       const res = await fetch(endpoint, {
         method:'POST', 
         headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({
-          message: base,
-          context_files: contextFiles,
-          project_name: projectName,
-          concept_map_context: mapContextText,
-          active_concept_map_id: selectedMapId,
-          history: historyPayload,
-          conversation_id: conversationId,
-          user_id: user?.uid // Add user ID for concept map retrieval
-        }),
+        body: JSON.stringify(payload),
         signal: controller.signal
       });
 
