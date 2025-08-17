@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AuthProvider } from "@/lib/AuthContext";
+import { AuthProvider } from "../lib/AuthContext";
 
 export const metadata: Metadata = {
   title: "ChatMap - AI Personalizzata con Mappe Concettuali",

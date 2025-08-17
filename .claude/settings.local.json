@@ -19,7 +19,8 @@
       "Bash(timeout:*)",
       "Bash(uvicorn:*)",
       "Bash(npm init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState, useId } from "react";
-import { useFirebaseConceptMaps } from '@/lib/useFirebaseConceptMaps';
-import { useAuth } from '@/lib/AuthContext';
+import { useFirebaseConceptMaps } from '../lib/useFirebaseConceptMaps';
+import { useAuth } from '../lib/AuthContext';
 
 export type RelationType = 
   | "causes" // causa → effetto
