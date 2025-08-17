@@ -814,6 +814,10 @@ async def debug_firebase_maps():
 async def root():
     return {"message": "Chatbot CLI Map API"}
 
+@app.get("/api/")
+async def api_root():
+    return {"message": "Chatbot CLI Map API", "status": "running"}
+
 if __name__ == "__main__":
     import uvicorn
     logger.info("Avvio server...")
