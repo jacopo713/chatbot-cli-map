@@ -530,7 +530,11 @@ export default function Chatbot() {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 120000); // 2 minuti
 
-      const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://chatbot-cli-map-production.up.railway.app'}/api/chat`;
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://chatbot-cli-map-production.up.railway.app';
+      console.log('🔍 Environment variable NEXT_PUBLIC_BACKEND_URL:', process.env.NEXT_PUBLIC_BACKEND_URL);
+      console.log('🎯 Using backend URL:', backendUrl);
+      const endpoint = `${backendUrl}/api/chat`;
+      console.log('📡 Final endpoint:', endpoint);
       
       const res = await fetch(endpoint, {
         method:'POST', 
