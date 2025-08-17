@@ -530,7 +530,7 @@ export default function Chatbot() {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 120000); // 2 minuti
 
-      const endpoint = 'http://localhost:8000/api/chat';
+      const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api/chat`;
       
       const res = await fetch(endpoint, {
         method:'POST', 
