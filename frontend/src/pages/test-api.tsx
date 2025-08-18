@@ -13,7 +13,7 @@ export default function TestAPI() {
     setError('');
     setResponse('');
 
-    const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://chatbot-cli-map-production.up.railway.app'}/api/chat`;
+    const endpoint = '/api/chat'; // Use Next.js API proxy
     
     const payload = {
       message: message,

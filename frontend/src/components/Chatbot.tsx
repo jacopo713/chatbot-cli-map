@@ -530,12 +530,19 @@ export default function Chatbot() {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 120000); // 2 minuti
 
-      const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://chatbot-cli-map-production.up.railway.app'}/api/chat`;
+      const endpoint = '/api/chat'; // Use Next.js API proxy
       console.log('🚀 ENV VAR:', process.env.NEXT_PUBLIC_BACKEND_URL);
       console.log('🚀 ENDPOINT:', endpoint);
       
       const payload = {
-        message: base
+        message: base,
+        context_files: contextFiles || [],
+        project_name: projectName,
+        concept_map_context: mapContextText,
+        active_concept_map_id: selectedMapId,
+        history: historyPayload || [],
+        conversation_id: conversationId,
+        user_id: user?.uid || null
       };
       console.log('🚀 PAYLOAD:', payload);
       
