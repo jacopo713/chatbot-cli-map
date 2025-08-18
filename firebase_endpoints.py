@@ -49,10 +49,6 @@ async def verify_firebase_token(authorization: str = Header(None)) -> str:
     """Verify Firebase ID token and return user ID"""
     logger.info(f"🔑 FIREBASE_ADMIN_AVAILABLE = {FIREBASE_ADMIN_AVAILABLE}")
     
-    # TEMPORARY: Force mock authentication to test concept maps functionality
-    logger.warning("🔑 TEMPORARY: Using mock authentication for testing")
-    return "mock_user_123"
-    
     if not FIREBASE_ADMIN_AVAILABLE:
         # Development mode - use mock user
         logger.warning("🔑 Firebase Admin not available, using mock authentication")
