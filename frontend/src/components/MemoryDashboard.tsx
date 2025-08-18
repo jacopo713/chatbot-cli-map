@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
+const BASE_URL = ""; // Use Next.js API proxy
 
 interface MemoryStats {
   total_memories: number;

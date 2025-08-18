@@ -1,7 +1,7 @@
 export type ChatResponse = { output: string };
 
 
-const BASE = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
+const BASE = ""; // Use Next.js API proxy
 
 // Classic chat API call
 export async function chatOnce(message: string, history: any[] = [], extra?: Record<string, any>) {

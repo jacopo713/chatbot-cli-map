@@ -11,7 +11,7 @@ interface FirebaseConceptMap extends ConceptMapData {
   updatedAt?: string;
 }
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_BASE_URL = ''; // Use Next.js API proxy
 
 export function useFirebaseConceptMaps() {
   const { user } = useAuth();
