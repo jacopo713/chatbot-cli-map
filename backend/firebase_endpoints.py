@@ -47,9 +47,10 @@ router = APIRouter(prefix="/api/firebase", tags=["firebase"])
 
 async def verify_firebase_token(authorization: str = Header(None)) -> str:
     """Verify Firebase ID token and return user ID"""
+    logger.info(f"🔑 FIREBASE_ADMIN_AVAILABLE = {FIREBASE_ADMIN_AVAILABLE}")
     if not FIREBASE_ADMIN_AVAILABLE:
         # Development mode - use mock user
-        logger.warning("Firebase Admin not available, using mock authentication")
+        logger.warning("🔑 Firebase Admin not available, using mock authentication")
         return "mock_user_123"
     
     if not authorization:
