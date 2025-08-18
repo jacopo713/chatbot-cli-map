@@ -6,6 +6,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const url = `${backendUrl}/api/firebase/concept-maps`;
     console.log('🔄 Proxying concept maps request to:', url);
+    console.log('🔄 Method:', req.method);
+    console.log('🔄 Auth header:', req.headers.authorization ? 'Present' : 'Missing');
+    console.log('🔄 Request body:', req.body);
 
     const response = await fetch(url, {
       method: req.method,
