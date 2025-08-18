@@ -83,10 +83,15 @@ export function useFirebaseConceptMaps() {
 
     try {
       const token = await getAuthToken();
+      console.log('🔑 Save - Firebase token status:', token ? 'Generated' : 'Missing');
+      console.log('🔑 Save - Token length:', token?.length || 0);
+      console.log('🔑 Save - User ID:', user?.uid);
+      
       if (!token) {
         throw new Error('No authentication token available');
       }
 
+      console.log('🚀 Save - Making request to:', `${API_BASE_URL}/api/firebase/concept-maps`);
       const response = await fetch(`${API_BASE_URL}/api/firebase/concept-maps`, {
         method: 'POST',
         headers: {
