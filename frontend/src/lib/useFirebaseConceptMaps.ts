@@ -105,8 +105,13 @@ export function useFirebaseConceptMaps() {
         }),
       });
 
+      console.log('📊 Response status:', response.status);
+      console.log('📊 Response headers:', Object.fromEntries(response.headers.entries()));
+      
       if (!response.ok) {
-        throw new Error(`Failed to save concept map: ${response.statusText}`);
+        const errorText = await response.text();
+        console.log('❌ Error response body:', errorText);
+        throw new Error(`Failed to save concept map: ${response.status} ${response.statusText} - ${errorText}`);
       }
 
       const result = await response.json();
